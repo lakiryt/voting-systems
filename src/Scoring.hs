@@ -5,6 +5,7 @@ module Scoring
     ) where
 
 import VotingSystem
+import Utils(filterWinner)
 
 import Data.List (transpose, sortOn)
 import Control.Arrow((&&&))
