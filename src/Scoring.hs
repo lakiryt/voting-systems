@@ -46,7 +46,7 @@ bordaVec n = [n-1,n-2..0]
 ----------------------------
 
 internal :: Ord c => ScoringVector -> [[c]] -> [c]
-internal vec = winner . map sumCand . transpose . map (sortOn fst . flip zip vec)
+internal vec = filterWinner . map sumCand . transpose . map (sortOn fst . flip zip vec)
     where
         sumCand :: [(c,Int)] -> (c,Int)
         sumCand = (fst . head) &&& (sum . map snd)
