@@ -2,4 +2,4 @@ module Main where
 
 
 main :: IO ()
-main = someFunc
+main = return ()
