@@ -39,6 +39,7 @@ vetoVec n = replicate (n-1) 1 ++ [0]
 bordaVec :: Int -> ScoringVector
 bordaVec n = [n-1,n-2..0]
 
+
 ----------------------------
 -- ## General Protocol ## --
 ----------------------------
