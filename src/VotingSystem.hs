@@ -1,5 +1,8 @@
 module VotingSystem
     ( VotingSystem
+    , PrefProfile(PP)
+    , canditates
+    , votes
     ) where
 
 data PrefProfile c t = PP {
