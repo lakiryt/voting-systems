@@ -16,13 +16,13 @@ import Control.Arrow((&&&))
 ---------------------------
 
 plurality :: Ord c => VotingSystem c [c]
-plurality (PP c v) = internal (pluralityVec $ length c) v
+plurality (PP c v) = general (pluralityVec $ length c) v
 
 veto :: Ord c => VotingSystem c [c]
-veto (PP c v) = internal (vetoVec $ length c) v
+veto (PP c v) = general (vetoVec $ length c) v
 
 borda :: Ord c => VotingSystem c [c]
-borda (PP c v) = internal (bordaVec $ length c) v
+borda (PP c v) = general (bordaVec $ length c) v
 
 
 ---------------------------
@@ -45,8 +45,8 @@ bordaVec n = [n-1,n-2..0]
 -- ## General Protocol ## --
 ----------------------------
 
-internal :: Ord c => ScoringVector -> [[c]] -> [c]
-internal vec = filterWinner . map sumCand . transpose . map (sortOn fst . flip zip vec)
+general :: Ord c => ScoringVector -> [[c]] -> [c]
+general vec = filterWinner . map sumCand . transpose . map (sortOn fst . flip zip vec)
     where
         sumCand :: [(c,Int)] -> (c,Int)
         sumCand = (fst . head) &&& (sum . map snd)
