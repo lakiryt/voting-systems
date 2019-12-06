@@ -2,6 +2,7 @@ module Scoring
     ( plurality
     , veto
     , borda
+    , general
     ) where
 
 import VotingSystem
